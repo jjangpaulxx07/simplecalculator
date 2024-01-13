@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="icon" href="assets/images/Calculator.png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #fce4ec; /* Light pink background */
+        }
+        h2 {
+            color: #ff80b3; /* Pink header color */
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #ff80b3; /* Pink label color */
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ff80b3; /* Pink border for input */
+            border-radius: 5px;
+        }
+        button {
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #ff80b3; /* Pink button color */
+            color: white; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e06699; /* Lighter pink on hover */
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff80b3; /* Pink result text color */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <form id="calculatorForm">
+
+        <label for="firstNumber">Enter first number:</label>
+        <input type="number" id="firstNumber" placeholder="Enter first number" required>
+
+        <br>
+
+        <label for="secondNumber">Enter second number:</label>
+        <input type="number" id="secondNumber" placeholder="Enter second number" required>
+
+        <br>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+
+        <div id="result"></div>
+
+    </form>
+
+    <script>
+        function calculate() {
+            // Get input values
+            var firstNumber = parseFloat(document.getElementById("firstNumber").value);
+            var secondNumber = parseFloat(document.getElementById("secondNumber").value);
+
+            // Perform calculations
+            var sum = firstNumber + secondNumber;
+            var difference = firstNumber - secondNumber;
+            var product = firstNumber * secondNumber;
+            var quotient = (secondNumber !== 0) ? (firstNumber / secondNumber) : "Undefined";
+
+            // Display results
+            var resultText = "Sum: " + sum + "<br>"
+                            + "Difference: " + difference + "<br>"
+                            + "Product: " + product + "<br>"
+                            + "Quotient: " + quotient;
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>
